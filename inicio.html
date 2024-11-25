@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión</title>
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-image: url('https://img.freepik.com/foto-gratis/collage-fondo-pelicula_23-2149876030.jpg');
+            background-size: cover; /* Ajusta la imagen para que cubra toda la pantalla */
+            background-repeat: no-repeat; /* Evita que la imagen se repita */
+            background-position: center; /* Centra la imagen */
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #0f5345;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            padding: 10px 20px;
+            text-align: center;
+            z-index: 10;
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .nav-buttons button {
+            padding: 10px 20px;
+            background-color: white;
+            color: #0f5345;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .nav-buttons button:hover {
+            background-color: gray;
+        }
+
+        .container1 {
+            margin-top: 100px; /* Espacio para el header */
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        input {
+            padding: 10px;
+            border: 1px solid gray;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button[type="submit"] {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #218838;
+        }
+
+        .p1 {
+            margin-top: 10px;
+        }
+
+        .p1 a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .p1 a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>CineRamu</h1>
+        <div class="nav-buttons">
+            <button onclick="redirectTo('cartelera.html')">Movie Listings</button>
+            <button onclick="redirectTo('promociones.html')">Promotions</button>
+            <button onclick="redirectTo('index.html')">CineRamu</button>
+            <button onclick="redirectTo('registro.html')">Create Account</button>
+            <button onclick="redirectTo('inicio.html')">Log In</button>
+        </div>
+    </header>
+
+    <div class="container1">
+        <h1>Log In</h1>
+        <form id="loginForm">
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" required>
+            <button type="submit">Log In</button>
+        </form>
+        <p class="p1">Don't have an account? <a href="registro.html">Sign up here</a></p>
+        <div id="error" class="error"></div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="javascript.js"></script>
+</body>
+
+</html>

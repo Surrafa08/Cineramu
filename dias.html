@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ramu</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .week-days {
+            display: flex;
+            justify-content: center; /* Alinea los botones al centro horizontalmente */
+            gap: 20px; /* Espacio entre los botones */
+            background-color: #0f5345;
+            color: white;
+            padding: 15px 0;
+        }
+
+        .day {
+            cursor: pointer;
+            text-align: center;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .day span {
+            display: block;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+        .slider-container {
+            margin: 20px;
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+        }
+
+        .slider-container.hidden {
+            display: none;
+        }
+
+        .cartelera {
+            border: 1px solid #ccc;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .cartelera img {
+            width: 150px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="week-days">
+        <div class="day" data-day="monday">Monday<span>November 20</span></div>
+        <div class="day" data-day="tuesday">Tuesday<span>November 21</span></div>
+        <div class="day" data-day="wednesday">Wednesday<span>November 22</span></div>
+        <div class="day" data-day="thursday">Thursday<span>November 23</span></div>
+        <div class="day" data-day="friday">Friday<span>November 24</span></div>
+        <div class="day" data-day="saturday">Saturday<span>November 25</span></div>
+        <div class="day" data-day="sunday">Sunday<span>November 26</span></div>
+        <button onclick="location.href='index.html'">CineRamu</button>
+    </div>
+    
+
+    <div class="slider-container hidden" id="slider-monday">
+        <div class="movie-listing">
+            <img src="https://assets.cinemark-core.com/5db771be04daec00076df3f5/vista/movies/66d8e5539c68d0f144831085/common/venom-3-99852-1725546552190" alt="Movie 1">
+            <div>Available: Monday, Nov 20: 3:00 PM, 5:00 PM, 7:00 PM</div>
+        </div>
+    </div>
+    
+    <div class="slider-container hidden" id="slider-tuesday">
+        <div class="movie-listing">
+            <img src="https://assets.cinemark-core.com/5db771be04daec00076df3f5/vista/movies/66d8de4dd031b2c2d1fb4edb/common/robot-salvaje-99799-1725489401887" alt="Movie 2">
+            <div>Available: Tuesday, Nov 21: 1:00 PM, 4:00 PM, 8:00 PM</div>
+        </div>
+    </div>
+    
+    <div class="slider-container hidden" id="slider-wednesday">
+        <div class="movie-listing">
+            <img src="https://assets.cinemark-core.com/5db771be04daec00076df3f5/vista/movies/62db216c118afc00097d5096/common/t-rex-la-dinoaventura-100098-1731096952532" alt="Movie 3">
+            <div>Available: Wednesday, Nov 22: 2:00 PM, 6:00 PM, 9:00 PM</div>
+        </div>
+    </div>
+    
+    <div class="slider-container hidden" id="slider-thursday">
+        <div class="movie-listing">
+            <img src="https://assets.cinemark-core.com/5db771be04daec00076df3f5/vista/movies/67223aaebae653407015ee59/common/volver-al-futuro-100786-1730382717449" alt="Movie 4">
+            <div>Available: Thursday, Nov 23: 12:00 PM, 3:00 PM, 7:00 PM</div>
+        </div>
+    </div>
+    
+    <div class="slider-container hidden" id="slider-friday">
+        <div class="movie-listing">
+            <img src="https://assets.cinemark-core.com/5db771be04daec00076df3f5/vista/movies/672a82bfe0a36c91dcf3c250/common/la-maldicon-del-bosque-1000009-1730929997318" alt="Movie 5">
+            <div>Available: Friday, Nov 24: 1:00 PM, 5:00 PM, 8:00 PM</div>
+        </div>
+    </div>
+    
+    <div class="slider-container hidden" id="slider-saturday">
+        <div class="movie-listing">
+            <img src="https://assets.cinemark-core.com/5db771be04daec00076df3f5/vista/movies/65690034efb447000812ead9/common/infierno-en-altamar-100451-1731951310855" alt="Movie 6">
+            <div>Available: Saturday, Nov 25: 1:00 PM, 5:00 PM, 8:00 PM</div>
+        </div>
+    </div>
+    
+    <div class="slider-container hidden" id="slider-sunday">
+        <div class="movie-listing">
+            <img src="https://www.ecartelera.com/carteles/7900/7931/002_m.jpg" alt="Movie 7">
+            <div>Available: Sunday, Nov 26: 1:00 PM, 5:00 PM, 8:00 PM</div>
+        </div>
+        <div class="movie-listing">
+            <img src="https://score.procinal.com.co/mobilecomjson/imagenes/1133.jpg" alt="Movie 8">
+            <div>Available: Sunday, Nov 26: 1:00 PM, 5:00 PM, 8:00 PM</div>
+        </div>
+        <div class="movie-listing">
+            <img src="https://www.ecartelera.com/carteles/8900/8902/041_m.jpg" alt="Movie 9">
+            <div>Available: Sunday, Nov 26: 1:00 PM, 5:00 PM, 8:00 PM</div>
+        </div>
+    </div>    
+
+    <!-- Repite el formato para los demás días -->
+
+    <script>
+        const days = document.querySelectorAll('.day');
+        const sliders = document.querySelectorAll('.slider-container');
+
+        days.forEach(day => {
+            day.addEventListener('click', () => {
+                const selectedDay = day.getAttribute('data-day');
+
+                sliders.forEach(slider => {
+                    slider.classList.add('hidden');
+                });
+
+                const selectedSlider = document.getElementById(`slider-${selectedDay}`);
+                if (selectedSlider) {
+                    selectedSlider.classList.remove('hidden');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
